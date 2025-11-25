@@ -11,77 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-
-      header {
-        background-color: #4caf50;
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      header input {
-        margin-top: 10px;
-        padding: 10px;
-        width: 300px;
-        border: none;
-        border-radius: 5px;
-      }
-
-      main {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        padding: 20px;
-      }
-
-      .herb {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.3s;
-      }
-
-      .herb:hover {
-        transform: scale(1.05);
-      }
-
-      .herb img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .herb h2 {
-        margin: 15px;
-        color: #4caf50;
-      }
-
-      .herb p {
-        margin: 0 15px 15px;
-      }
-
-      a {
-        text-decoration: none;
-      }
-      div>span>i{
-        color: red;
-      }
-      footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #333;
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
@@ -92,7 +22,7 @@
 
     <main id="herbs-container">
       <div class="herb" data-name="Ginseng">
-        <img src="Ginger.jpg" alt="Ginseng" />
+        <img src="./image/Ginger.jpg" alt="Ginseng" />
         <h2>Ginseng</h2>
         <p>
           A root known for boosting energy and reducing stress. Often used in
@@ -108,7 +38,7 @@
         </div>
       </div>
       <div class="herb" data-name="Turmeric">
-        <img src="Turmeric.avif" alt="Turmeric" />
+        <img src="./image/Turmeric.avif" alt="Turmeric" />
         <h2>Turmeric</h2>
         <p>
           Contains curcumin, which has anti-inflammatory properties. Great for
@@ -121,7 +51,7 @@
         </div>
       </div>
       <div class="herb" data-name="lemongrass">
-        <img src="lemongrass.avif" alt="lemongrass" />
+        <img src="./image/lemongrass.avif" alt="lemongrass" />
         <h2>lemongrass</h2>
         <p>
           Boosts the immune system and helps fight colds. Commonly used as a tea
@@ -136,7 +66,7 @@
         </div>
       </div>
       <div class="herb" data-name="Tulsi">
-        <img src="Tulsi.avif" alt="Tulsi" />
+        <img src="./image/Tulsi.avif" alt="Tulsi" />
         <h2>Tulsi</h2>
         <p>
           Known for its calming effects. Used for anxiety relief and sleep aid.
@@ -151,7 +81,7 @@
         </div>
       </div>
       <div class="herb" data-name="Peppermint">
-        <img src="pipermint.jpg" alt="Peppermint" />
+        <img src="./image/pipermint.jpg" alt="Peppermint" />
         <h2>Peppermint</h2>
         <p>
           Aids digestion and relieves headaches. Often consumed as tea or used
@@ -164,7 +94,7 @@
         </div>
       </div>
       <div class="herb" data-name="Aswagandha">
-        <img src="aswagandh.jpg" alt="Aswagandha" />
+        <img src="./image/aswagandh.jpg" alt="Aswagandha" />
         <h2>Aswagandha</h2>
         <p>Aswagandha reduce stress and boost stamina and energy</p>
         <a
@@ -194,7 +124,7 @@
       </div>
 
       <div class="herb" data-name="Aloevera">
-        <img src="Aloevera.avif" alt="Aloevera" />
+        <img src="./image/Aloevera.avif" alt="Aloevera" />
         <h2>Aloevera</h2>
         <p>
           Aloe vera helps in many health,skin,hair and digestion problem.it is
@@ -207,7 +137,7 @@
         </div>
       </div>
       <div class="herb" data-name="Giloy">
-        <img src="guduchii giloy.jpg" alt="Giloy" />
+        <img src="./image/guduchii giloy.jpg" alt="Giloy" />
         <h2>Giloy(Guduchi)</h2>
         <p>
           Aids digestion and relieves headaches. Often consumed as tea or used
@@ -222,7 +152,7 @@
         </div>
       </div>
       <div class="herb" data-name="drumstick leaves">
-        <img src="drumstick.jpg" alt="dramstick" />
+        <img src="./image/drumstick.jpg" alt="dramstick" />
         <h2>Drumstick(Moringa)</h2>
         <p>
           Drumstick is the long,slender green pod of the Moringa oleifera tree.
@@ -244,43 +174,8 @@
       </p>
     </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.getElementById("search");
-        const herbs = document.querySelectorAll(".herb");
-
-        searchInput.addEventListener("input", function () {
-          const query = searchInput.value.toLowerCase();
-          herbs.forEach((herb) => {
-            const name = herb.getAttribute("data-name").toLowerCase();
-            if (name.includes(query)) {
-              herb.style.display = "block";
-            } else {
-              herb.style.display = "none";
-            }
-          });
-        });
-      });
-      const likes = document.querySelectorAll(".like");
-      const islike = [false,false,false,false,false,false,false,false,false,false];
-      const likeCounts = document.querySelectorAll(".likeCount");
-      const sumLike = [0,0,0,0,0,0,0,0,0,0];
-      // Like or dislike functions
-      likes.forEach((like,idx)=>{
-        like.addEventListener("click", () => {
-        if (islike[idx]) {
-          sumLike[idx]--;
-          likes[idx].innerHTML = '<i class="fa-regular fa-heart"></i>';
-          likeCounts[idx].innerText = sumLike[idx];
-          islike[idx] = false;
-        } else {
-          islike[idx] = true;
-          sumLike[idx]++;
-          likes[idx].innerHTML = '<i class="fa-solid fa-heart"></i>';
-          likeCounts[idx].innerText = sumLike[idx];
-        }
-      });
-      })
+    <script src="script.js">
+      
     </script>
   </body>
 </html>
