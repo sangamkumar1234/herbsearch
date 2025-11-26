@@ -61,6 +61,12 @@ body {
       div>span>i{
         color: red;
       }
+      .likeCount{
+        margin-left: 280px;
+      }
+      .like{
+        margin-left: 280px;
+      }
       footer {
         text-align: center;
         padding: 10px;
